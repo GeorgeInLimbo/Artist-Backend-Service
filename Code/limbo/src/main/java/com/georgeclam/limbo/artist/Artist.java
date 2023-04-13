@@ -24,7 +24,7 @@ public class Artist {
 
     @Column(nullable = false)
     @NotBlank
-    @Email // Performs email validation automatically
+    @Email() // Performs email validation automatically
     private String email;
 
     public Artist() {

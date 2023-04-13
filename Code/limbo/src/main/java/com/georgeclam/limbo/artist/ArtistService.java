@@ -15,3 +15,15 @@ public class ArtistService {
 //        artistRepo.save(name);
 //    }
 }
+
+
+//    @DeleteMapping("/people/{id}")
+//    public Person deletePerson(@PathVariable("id") Integer id) {
+//        Optional<Person> personToDeleteOptional = this.personRepository.findById(id);
+//        if (!personToDeleteOptional.isPresent()) {
+//            return null;
+//        }
+//        Person personToDelete = personToDeleteOptional.get();
+//        this.personRepository.delete(personToDelete);
+//        return personToDelete;
+//    }
