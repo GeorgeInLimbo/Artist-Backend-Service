@@ -16,30 +16,20 @@ public class Artwork {
     @NotBlank
     private String title;
 
-//    @NotBlank
-//    private Long artistId;
+    @NotBlank
+    private Long artistId;
 
     @NotBlank
     private String medium;
 
+    @NotBlank
     private Integer yearCreated;
 
-    private String path;
-
-    public Artwork(String title, String medium, Integer yearCreated, String path) {
+    public Artwork(String title, String medium, Integer yearCreated, Long artistId) {
         this.title = title;
-//        this.artistId = artistId;
+        this.artistId = artistId;
         this.medium = medium;
         this.yearCreated = yearCreated;
-        this.path = path;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public Artwork() {
@@ -61,14 +51,6 @@ public class Artwork {
         this.title = title;
     }
 
-//    public Long getArtistId() {
-//        return artistId;
-//    }
-//
-//    public void setArtistId(Long artistId) {
-//        this.artistId = artistId;
-//    }
-
     public String getMedium() {
         return medium;
     }
@@ -83,5 +65,13 @@ public class Artwork {
 
     public void setYearCreated(Integer yearCreated) {
         this.yearCreated = yearCreated;
+    }
+
+    public Long getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(Long artistId) {
+        this.artistId = artistId;
     }
 }

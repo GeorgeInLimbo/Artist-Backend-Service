@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+// TODO: Customize HTTP Response Codes for each method, create advanced queries and custom queries, look into exception handling
+
 @RestController
 @RequestMapping(path = "/api/v1")
 @Slf4j
