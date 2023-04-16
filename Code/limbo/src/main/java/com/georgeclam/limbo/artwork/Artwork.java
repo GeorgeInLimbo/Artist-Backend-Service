@@ -7,8 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.Optional;
-
 @Entity
 public class Artwork {
 
@@ -28,14 +26,12 @@ public class Artwork {
     @NotNull
     private Integer yearCreated;
 
-    public Artwork(Optional<String> title, Optional<String> medium, Optional<Integer> yearCreated, Optional<Long> artistId) {
-        if (title.isPresent()) this.title = title.get();
-        if (medium.isPresent()) this.medium = medium.get();
-        if (yearCreated.isPresent()) this.yearCreated = yearCreated.get();
-        if (artistId.isPresent()) this.artistId = artistId.get();
-    }
 
-    public Artwork(String title, String medium, Integer yearCreated, Long artistId) {
+
+    public Artwork(String title,
+                   String medium,
+                   Integer yearCreated,
+                   Long artistId) {
         this.title = title;
         this.artistId = artistId;
         this.medium = medium;
