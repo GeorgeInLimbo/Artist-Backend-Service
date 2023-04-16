@@ -30,7 +30,7 @@ public class ArtworkController {
     }
 
     @GetMapping("/artwork/{id}")
-    public Artwork getWork(@PathVariable("id") Long id) {
+    public Artwork getWorkById(@PathVariable("id") Long id) {
         log.info("Get Artwork request was executed");
         return artworkService.getArtwork(id);
     }
@@ -61,4 +61,9 @@ public class ArtworkController {
         log.info("findWorksByMediumAndArtistId request was made by a client.");
         return artworkService.getArtworkByArtist(artistId, medium);
     }
+
+//    @GetMapping("/artists/artists-with-artwork")
+//    public List<Artwork> findArtistName() {
+//        return artworkService
+//    }
 }

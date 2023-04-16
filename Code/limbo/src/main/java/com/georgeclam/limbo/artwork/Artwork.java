@@ -6,8 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Artwork {
 
     @Id
@@ -36,48 +44,5 @@ public class Artwork {
         this.artistId = artistId;
         this.medium = medium;
         this.yearCreated = yearCreated;
-    }
-
-    public Artwork() {
-    }
-
-    public Long getArtworkId() {
-        return artworkId;
-    }
-
-    public void setArtworkId(Long artworkId) {
-        this.artworkId = artworkId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getMedium() {
-        return medium;
-    }
-
-    public void setMedium(String medium) {
-        this.medium = medium;
-    }
-
-    public Integer getYearCreated() {
-        return yearCreated;
-    }
-
-    public void setYearCreated(Integer yearCreated) {
-        this.yearCreated = yearCreated;
-    }
-
-    public Long getArtistId() {
-        return artistId;
-    }
-
-    public void setArtistId(Long artistId) {
-        this.artistId = artistId;
     }
 }
