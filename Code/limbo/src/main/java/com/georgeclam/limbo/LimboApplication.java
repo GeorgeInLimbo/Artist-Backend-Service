@@ -10,7 +10,6 @@ public class LimboApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LimboApplication.class, args);
-		log.info("Application has been executed");
 	}
 
 }
