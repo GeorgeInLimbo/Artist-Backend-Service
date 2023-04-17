@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 // @Table(name = "artist") optional given the class name matches the table name in the db
 public class Artist {
 
@@ -30,9 +32,6 @@ public class Artist {
     @NotBlank
     @Email() // Performs email validation automatically
     private String email;
-
-    public Artist() {
-    }
 
     public Artist(String name, String password, String email) {
         this.name = name;
