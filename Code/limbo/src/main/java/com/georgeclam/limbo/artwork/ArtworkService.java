@@ -1,5 +1,6 @@
 package com.georgeclam.limbo.artwork;
 
+import com.georgeclam.limbo.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class ArtworkService {
     private ArtworkRepository artworkRepo;
 
     /**
-     * Dependency Injection for the ArtworkRepository.
+     * Dependency Injection for the ArtworkRepository handled in the constructor.
      *
      * @param artworkRepo
      */
@@ -77,7 +78,9 @@ public class ArtworkService {
      */
     public Artwork getArtwork(Long id) {
         Optional<Artwork> findArtwork = artworkRepo.findById(id);
-        return findArtwork.orElse(null);
+        return findArtwork.orElseThrow( () -> new NotFoundException(
+                "The Artwork with ID: " + id + " was not found."
+        ));
     }
 
     /**
@@ -125,7 +128,8 @@ public class ArtworkService {
      */
     public void deleteArtwork(Long id) {
         Optional<Artwork> artworkToDeleteOptional = artworkRepo.findById(id);
-        if (artworkToDeleteOptional.isEmpty()) return;
+        if (artworkToDeleteOptional.isEmpty())
+            throw new NotFoundException("The Artwork with ID: " + id + " has not been found.");
         Artwork artworkToDelete = artworkToDeleteOptional.get();
         artworkRepo.delete(artworkToDelete);
     }

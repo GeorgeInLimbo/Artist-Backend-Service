@@ -1,5 +1,6 @@
 package com.georgeclam.limbo.artist;
 
+import com.georgeclam.limbo.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,8 @@ public class ArtistService {
      * @return A specific instance of Artist.
      */
     public Artist getArtistById(Long id) {
-        return artistRepo.findById(id).get();
+        return artistRepo.findById(id).orElseThrow(
+                () -> new NotFoundException("The Artist with ID: " + id + " was not found."));
     }
 
     /**
@@ -83,10 +85,13 @@ public class ArtistService {
      * @return The information for the updated Artist.
      */
     public Artist updateArtistById(Long id, Map<String, String> body) {
-        Artist artist = artistRepo.findById(id).get();
+        Artist artist = artistRepo.findById(id).orElseThrow(
+                () -> new NotFoundException("The Customer with ID: " + id + " was not found."));
+
         artist.setName(body.get("name"));
         artist.setEmail(body.get("email"));
         artist.setPassword(body.get("password"));
+
         artistRepo.save(artist);
         return artist;
     }
