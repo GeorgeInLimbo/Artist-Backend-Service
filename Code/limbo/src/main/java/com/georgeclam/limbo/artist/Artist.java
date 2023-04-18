@@ -8,31 +8,47 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/****************************************************************************
+ * <b>Title</b>: Artist.java
+ * <b>Project</b>: Limbo Gallery - Backend
+ * <b>Description: </b> Artist Model, which sets the parameters for the Artist table in the database.
+ * <b>Copyright:</b> Copyright (c) 2023
+ * <b>Company:</b> Silicon Mountain Technologies
+ *
+ * @author George Clam
+ * @version 1.0
+ * @since Apr 17, 2023
+ * @updates:
+ ****************************************************************************/
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-// @Table(name = "artist") optional given the class name matches the table name in the db
 public class Artist {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies that the primary key should be generated automatically.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 70, nullable = false)
     @NotBlank
     private String name;
 
-    @Column(nullable = false)
     @NotBlank  // Must activate the validations in the controller for it to work (@Valid)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // Makes sure that password isn't exposed
     private String password;
 
-    @Column(nullable = false)
     @NotBlank
-    @Email // Performs email validation automatically
+    @Email
     private String email;
 
+    /**
+     * Constructor that doesn't set the value for the id attribute because it is automatically generated.
+     *
+     * @param name
+     * @param password
+     * @param email
+     */
     public Artist(String name, String password, String email) {
         this.name = name;
         this.password = password;

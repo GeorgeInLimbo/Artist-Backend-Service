@@ -5,20 +5,22 @@ import lombok.Setter;
 import lombok.ToString;
 import java.util.Optional;
 
-/**
- * This class represents an Artwork Model for the purpose of searching for artwork
- * with optional params. It represents an Artwork object, but allows for more flexibility
- * based on the functionality required in the controller.
- *
+/****************************************************************************
+ * <b>Title</b>: ArtworkSearchDTO.java
+ * <b>Project</b>: Limbo Gallery - Backend
+ * <b>Description: </b> Class that provides the ability to search for Artwork according to optional
+ * parameters provided by the Client in their requests. Allows for more specific requests.
  * Represents a search payload where each field is an optional filter applied to
  * queries on the artwork resource set.
  *
- * ChatGPT: DTOs are often used to carry data from the data access layer
- * (e.g., repositories) to the presentation layer (e.g., controllers) or vice versa.
+ * <b>Copyright:</b> Copyright (c) 2023
+ * <b>Company:</b> Silicon Mountain Technologies
  *
- * ChatGPT: The Service class focuses on the behavior of the application, while the
- * DTO class focuses on the structure of the data being transferred.
- */
+ * @author George Clam
+ * @version 1.0
+ * @since Apr 17, 2023
+ * @updates:
+ ****************************************************************************/
 @Getter
 @Setter
 @ToString
@@ -29,6 +31,13 @@ public class ArtworkSearchDTO {
     private String medium;
     private Integer yearCreated;
 
+    /**
+     * Constructor that allows for optional values for columns in the table.
+     * @param title
+     * @param medium
+     * @param yearCreated
+     * @param artistId
+     */
     public ArtworkSearchDTO(
                    Optional<String> title,
                    Optional<String> medium,
